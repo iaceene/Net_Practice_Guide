@@ -101,7 +101,7 @@ Great! Here's a **diagram of the OSI Model** along with **examples of protocols 
 
 ---
 
-![alt text](https://coderepublics.com/blog/wp-content/uploads/2023/09/WHAT-IS-OSI-MODEL-7-LAYERS-EXPLAINED.jpg)
+![alt text](image.png)
 
 ---
 
