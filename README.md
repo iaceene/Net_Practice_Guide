@@ -1,4 +1,4 @@
-# 🌐 **Net Practice 42/43: Networking Fundamentals**  
+# 🌐 **Net Practice 42: Networking Fundamentals**  
 *A comprehensive guide to the OSI model, TCP/IP, subnetting, and network devices.*  
 
 ---
