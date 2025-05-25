@@ -1,160 +1,111 @@
-The **OSI Model** (Open Systems Interconnection Model) is a conceptual framework used to understand and design how different networking protocols interact and communicate across a network.
-
-It divides the networking process into **7 distinct layers**, each with a specific role.
-
----
-
-### 🌐 The 7 Layers of the OSI Model (Top to Bottom)
-
-| Layer | Name             | Description                                                                          |
-| ----- | ---------------- | ------------------------------------------------------------------------------------ |
-| **7** | **Application**  | Interface for user applications (e.g., browsers, email)                              |
-| **6** | **Presentation** | Translates data (encryption, compression, encoding)                                  |
-| **5** | **Session**      | Manages sessions and connections between applications                                |
-| **4** | **Transport**    | Ensures reliable data transfer (TCP/UDP)                                             |
-| **3** | **Network**      | Handles routing and addressing (IP)                                                  |
-| **2** | **Data Link**    | Handles frame transfer between devices on the same network (MAC addresses, switches) |
-| **1** | **Physical**     | Transmits raw bits over the physical medium (cables, radio signals)                  |
+# 🌐 **Net Practice 42/43: Networking Fundamentals**  
+*A comprehensive guide to the OSI model, TCP/IP, subnetting, and network devices.*  
 
 ---
 
-### 🔄 Simple Explanation of Each Layer:
-
-1. **Physical**: Hardware — cables, connectors, and signals.
-2. **Data Link**: Sends frames between devices on the same network (Ethernet).
-3. **Network**: Determines best path to destination (IP addressing and routing).
-4. **Transport**: Manages end-to-end data transfer (TCP = reliable, UDP = fast).
-5. **Session**: Starts, maintains, and ends communication sessions.
-6. **Presentation**: Converts data into a readable format (encryption, compression).
-7. **Application**: What the user interacts with (web browser, email client).
+## 📌 **Table of Contents**  
+1. [OSI Model](#-the-osi-model)  
+2. [TCP vs UDP](#-tcp-vs-udp-key-differences)  
+3. [IP Addresses & Subnet Masks](#-ip-addresses--subnet-masks)  
+4. [Network Devices](#-network-devices-explained)  
+5. [How Data Travels](#-how-data-travels-across-networks)  
 
 ---
 
-### 🧠 Easy Mnemonic to Remember the Layers:
+## 🧩 **The OSI Model**  
+The **OSI (Open Systems Interconnection) Model** is a 7-layer framework for network communication.  
 
-> **A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing
-> (Application → Physical)
+### **7 Layers Overview**  
+| Layer | Name             | Key Function                          | Example Protocols       |  
+|-------|------------------|---------------------------------------|-------------------------|  
+| **7** | Application      | User interfaces (HTTP, FTP, DNS)      | `HTTP`, `SMTP`, `FTP`   |  
+| **6** | Presentation     | Data translation (encryption, compression) | `SSL/TLS`, `JPEG` |  
+| **5** | Session          | Manages connections                   | `NetBIOS`, `RPC`        |  
+| **4** | Transport        | Reliable data delivery (TCP/UDP)      | `TCP`, `UDP`            |  
+| **3** | Network          | Routing & logical addressing (IP)     | `IP`, `ICMP`, `OSPF`    |  
+| **2** | Data Link        | Frame forwarding (MAC addresses)      | `Ethernet`, `ARP`       |  
+| **1** | Physical         | Raw bit transmission (cables, Wi-Fi)  | `Fiber`, `Wi-Fi`, `Hub` |  
 
-Or from the bottom:
-
-> **P**lease **D**o **N**ot **T**hrow **S**ausage **P**izza **A**way
-> (Physical → Application)
+### **Key Concepts**  
+- **Encapsulation**: Data moves down layers (adding headers) and up (removing headers).  
+- **Mnemonic**:  
+  - *"All People Seem To Need Data Processing"* (Top → Bottom)  
+  - *"Please Do Not Throw Sausage Pizza Away"* (Bottom → Top)  
 
 ---
 
-### 🔍 Why OSI Matters:
+## 🔄 **TCP vs UDP: Key Differences**  
 
-* Helps **standardize networking protocols**.
-* Makes it easier to **troubleshoot** problems.
-* Clarifies where responsibilities lie for devices and software.
-
-Great! Here's a **diagram of the OSI Model** along with **examples of protocols at each layer**:
+| Feature          | TCP (Transmission Control Protocol)       | UDP (User Datagram Protocol)       |  
+|------------------|-------------------------------------------|------------------------------------|  
+| **Connection**   | Connection-oriented (handshake)           | Connectionless                    |  
+| **Reliability**  | Guaranteed delivery (retransmits lost data)| No delivery guarantees            |  
+| **Speed**        | Slower (overhead for reliability)         | Faster (low overhead)             |  
+| **Use Cases**    | Web browsing, email, file transfers       | Streaming, gaming, VoIP           |  
 
 ---
 
-### 🧱 OSI Model: Layered Diagram with Protocol Examples
+## 🔢 **IP Addresses & Subnet Masks**  
 
+### **IPv4 Address Structure**  
+- **Example**: `192.168.1.10`  
+- **Subnet Mask**: `255.255.255.0` → `/24` in CIDR.  
+  - **Network Part**: `192.168.1` (first 24 bits).  
+  - **Host Part**: `.10` (unique to the device).  
+
+### **How Subnetting Works**  
+- A subnet mask divides an IP into **network** and **host** portions.  
+- Devices use it to determine if an IP is **local** (directly reachable) or **remote** (requires a router).  
+
+**Example**:  
+- If your IP is `192.168.1.10/24`, devices in `192.168.1.1–254` are local.  
+- `8.8.8.8` (Google) is remote → traffic goes to the **router**.  
+
+---
+
+## 🖥 **Network Devices Explained**  
+
+| Device   | Layer  | Function                                   | Example                     |  
+|----------|--------|--------------------------------------------|-----------------------------|  
+| **Switch** | L2     | Connects local devices (uses MAC addresses) | `Ethernet switch`          |  
+| **Router** | L3     | Routes traffic between networks (uses IP)  | `Home Wi-Fi router`        |  
+| **Hub**   | L1     | Broadcasts data to all ports (obsolete)    | `Legacy network hub`       |  
+
+**Key Differences**:  
+- **Switch**: Smart (forwards to specific devices).  
+- **Router**: Connects LAN to WAN (internet).  
+- **Hub**: Dumb (broadcasts to all).  
+
+---
+
+## 📡 **How Data Travels Across Networks**  
+
+1. **Device Sends Data**:  
+   - Checks subnet mask: Is the destination **local** or **remote**?  
+2. **Local Traffic**:  
+   - Switch forwards using **MAC addresses**.  
+3. **Remote Traffic**:  
+   - Router sends data to the **ISP** → internet.  
+4. **TCP Ensures Reliability**:  
+   - Breaks data into packets, numbers them, and retransmits if lost.  
+
+**Diagram**:  
 ```
-┌──────────────┐
-│  Layer 7     │  Application Layer  
-│              │  📱 Protocols: HTTP, FTP, SMTP, DNS, Telnet  
-└──────────────┘
-┌──────────────┐
-│  Layer 6     │  Presentation Layer  
-│              │  🎨 Protocols: SSL/TLS, JPEG, GIF, MPEG, ASCII  
-└──────────────┘
-┌──────────────┐
-│  Layer 5     │  Session Layer  
-│              │  🗂️ Protocols: NetBIOS, PPTP, RPC  
-└──────────────┘
-┌──────────────┐
-│  Layer 4     │  Transport Layer  
-│              │  🚚 Protocols: TCP, UDP  
-└──────────────┘
-┌──────────────┐
-│  Layer 3     │  Network Layer  
-│              │  🛰️ Protocols: IP, ICMP, IGMP, IPsec, RIP  
-└──────────────┘
-┌──────────────┐
-│  Layer 2     │  Data Link Layer  
-│              │  🔗 Protocols: Ethernet, PPP, MAC, ARP, Switches  
-└──────────────┘
-┌──────────────┐
-│  Layer 1     │  Physical Layer  
-│              │  ⚡ Protocols/Devices: Cables, Fiber, Wi-Fi, Hubs  
-└──────────────┘
+[Device] → [Switch] → [Router] → [Internet] → [Server]
 ```
 
 ---
 
-### 🧠 Summary Table
-
-| Layer | Name         | Examples                         |
-| ----- | ------------ | -------------------------------- |
-| 7     | Application  | HTTP, FTP, SMTP, DNS             |
-| 6     | Presentation | SSL/TLS, JPEG, ASCII             |
-| 5     | Session      | NetBIOS, PPTP                    |
-| 4     | Transport    | TCP, UDP                         |
-| 3     | Network      | IP, ICMP, IGMP, RIP              |
-| 2     | Data Link    | Ethernet, MAC, ARP, PPP          |
-| 1     | Physical     | Cables, Fiber Optic, Wi-Fi, Hubs |
+## 💡 **Key Takeaways**  
+- **OSI Model**: Standardizes network communication into 7 layers.  
+- **TCP vs UDP**: Choose TCP for reliability, UDP for speed.  
+- **Subnet Mask**: Defines network boundaries.  
+- **Router vs Switch**: Routers connect networks; switches connect local devices.  
 
 ---
 
-![alt text](image.png)
-
----
-
-**TCP (Transmission Control Protocol)** and **UDP (User Datagram Protocol)** are two core communication protocols used to send data over the Internet or other networks. Both run on top of the Internet Protocol (IP), but they work in different ways and are used for different purposes.
-
----
-
-### 🔷 TCP (Transmission Control Protocol)
-
-TCP is a **connection-oriented** protocol, meaning it establishes a connection before transmitting data and ensures reliable delivery.
-
-#### Key Features:
-
-* **Reliable**: Guarantees that data arrives in the correct order and without errors.
-* **Connection-based**: Requires a handshake (3-way) before data transfer starts.
-* **Error-checking and correction**: Retransmits lost packets.
-* **Ordered**: Maintains the sequence of packets.
-* **Slower** than UDP due to overhead for reliability.
-
-#### Use Cases:
-
-* Web browsing (HTTP/HTTPS)
-* Email (SMTP, IMAP, POP3)
-* File transfers (FTP)
-
----
-
-### 🔸 UDP (User Datagram Protocol)
-
-UDP is a **connectionless** protocol that sends data without establishing a connection or guaranteeing delivery.
-
-#### Key Features:
-
-* **Unreliable**: No guarantee that packets will arrive or be in order.
-* **No handshake**: Just sends the packets immediately.
-* **Low overhead**: Faster and more lightweight than TCP.
-* **No retransmission or acknowledgment**.
-
-#### Use Cases:
-
-* Real-time applications (VoIP, video calls)
-* Online gaming
-* DNS lookups
-* Streaming media
-
----
-
-| Feature     | TCP                    | UDP                      |
-| ----------- | ---------------------- | ------------------------ |
-| Connection  | Connection-oriented    | Connectionless           |
-| Reliability | Reliable (guaranteed)  | Unreliable (best effort) |
-| Ordering    | Ensures packet order   | No ordering guaranteed   |
-| Speed       | Slower (more overhead) | Faster (less overhead)   |
-| Use Cases   | Web, Email, FTP        | Streaming, VoIP, Gaming  |
+## 📚 **Further Reading**  
+- [TCP/IP Illustrated (Book)](https://en.wikipedia.org/wiki/TCP/IP_Illustrated)  
+- [Subnetting Practice](https://www.subnetting.net/)  
 
 ---
