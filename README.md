@@ -1,7 +1,7 @@
 # 🌐 **Net Practice 42: Networking Fundamentals**  
 *A comprehensive guide to the OSI model, TCP/IP, subnetting, and network devices.* 
 
-[![Button]](https://iaceene.github.io/42_Subjects/)
+[SUBJECT](https://iaceene.github.io/42_Subjects/)
 
 
 ---
