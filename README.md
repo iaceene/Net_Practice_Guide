@@ -1,5 +1,9 @@
 # 🌐 **Net Practice 42: Networking Fundamentals**  
-*A comprehensive guide to the OSI model, TCP/IP, subnetting, and network devices.*  
+*A comprehensive guide to the OSI model, TCP/IP, subnetting, and network devices.* 
+# 42 Subjects
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png)Loading...
+
+Select a Subject
 
 ---
 
