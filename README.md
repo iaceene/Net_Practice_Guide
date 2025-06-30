@@ -13,19 +13,19 @@
 ---
 
 ## 🧩 **The OSI Model**  
-![alt text](https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png)
+![alt text](src/https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png)
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or networking system, dividing it into seven layers. This model helps in understanding how different network components interact to enable communication between devices, regardless of their underlying technology. created by ISO (International Organization for Standardization), think about layers like a steps to communicat between devices.
 This steps or layers is 7, and this steps happend is the two devices, the sender and the reciever do this steps in reverce,
 if the sender goes from 7 to 1, reciever goes from 1 to 7.
 
-![alt text](slide_3.jpg)
+![alt text](src/slide_3.jpg)
 
 this is how the data transform in each layer :
 
-![alt text](figure-4.png)
-![alt text](slide_10.jpg)
-![alt text](slide_9.jpg)
+![alt text](src/figure-4.png)
+![alt text](src/slide_10.jpg)
+![alt text](src/slide_9.jpg)
 
 
 ##### At sender:
@@ -46,7 +46,7 @@ At layer 5 the message is again in form appropriate to the application and is ma
 
 The physical layer is responsible for movements of individual bits from one hop (node) to the next.
 
-![alt text](slide_16.jpg)
+![alt text](src/slide_16.jpg)
 
 
 ##### Physical characteristic of interfaces and media:
@@ -70,7 +70,7 @@ Devices can connected by using Star, mesh, bus, ring or hybrid topology
 
 The data link layer is responsible for moving frames from one hop (node) to the next.
 
-![alt text](slide_20.jpg)
+![alt text](src/slide_20.jpg)
 
 
 ##### Framing:
@@ -89,7 +89,7 @@ It imposes a flow control mechanism, if the data rate at the receiver is less th
 • When two or more devices than one devices are connected to the same link, data link layer protocols are necessary to
 determine which device has control over the link at given time.
 
-![alt text](slide_23.jpg)
+![alt text](src/slide_23.jpg)
 
 
 Known also as the MAC or link address
@@ -100,14 +100,14 @@ It is included in the frame used by data link layer (Header) Ethernet uses 6-byt
 Example :
 A node with physical address 10 sends a frame to a node with physical address 87. The two nodes are connected by a link. At the data link level this frame contains physical addresses in the header. These are the only addresses needed. The rest of the header contains other information needed at this level. The trailer usually contains extra bits needed for error detection
 
-![alt text](slide_26.jpg)
+![alt text](src/slide_26.jpg)
 
 #### 3. Network Layer(hop to hop delivery)
 
 - The network layer is responsible for the delivery of individual packets from the source host to the destination host across multiple network.
 - If two system are connected to the same link (network), no need for this layer.
 
-![alt text](slide_28.jpg)
+![alt text](src/slide_28.jpg)
 
 ##### Logical addressing
 • In contrast to physical addressing implemented by data link layer
@@ -117,7 +117,7 @@ These unique identifier( as tel. no, each tel. has unique number) enable special
 provide the routing mechanism for the router which route the packet to their final destination.
 Routers: devices used when independent networks are connected to create an internetworking (network of networks)
 
-![alt text](slide_30.jpg)
+![alt text](src/slide_30.jpg)
 
 
 - IP addresses are necessary for universal communications that are
@@ -130,13 +130,13 @@ Logical address (IP) The physical addresses will change from hop to hop, but the
 
 - The following figure shows a part of an internet with two routers connecting three LANs. Each device (computer or router) has a pair of addresses (logical and physical) for each connection. In this case, each computer is connected to only one link and therefore has only one pair of addresses. Each router, however, is connected to three networks (only two are shown in the figure). So each router has three pairs of addresses, one for each connection.
 
-![alt text](slide_33.jpg)
+![alt text](src/slide_33.jpg)
 
 ##### 5. Session Layer
 
 The session layer is responsible for dialog control and synchronization.
 
-![alt text](slide_47.jpg)
+![alt text](src/slide_47.jpg)
 
 
 1. Dialog control:
@@ -148,7 +148,7 @@ Allow a process to add check points (Synchronization point) into a stream of dat
 
 The presentation layer is responsible for translation, compression, and encryption.
 
-![alt text](slide_50.jpg)
+![alt text](src/slide_50.jpg)
 
 - 1. Translation
 At the sender it changes the information from its sender –
@@ -162,7 +162,7 @@ Data compression reduces the number of bits contained in the information. It is 
 
 The application layer is responsible for providing services to the user.
 
-![alt text](slide_53.jpg)
+![alt text](src/slide_53.jpg)
 
 
 The application layer is responsible for providing services to the user such as
@@ -173,7 +173,7 @@ Remote log-in Accessing the web (WWW)
 - HTTP: Hyper text transfer protocol used for network file transfers in WWW environment
 - SMTP: Simple mail transfer protocol used to send electronic mail on the internet.
 
-![alt text](slide_55.jpg)
+![alt text](src/slide_55.jpg)
 
 ---
 
