@@ -476,3 +476,31 @@ A router is a device like a switch that routes data packets based on their IP ad
 
 #### NIC
 NIC or network interface card is a network adapter that is used to connect the computer to the network. It is installed in the computer to establish a LAN.  It has a unique ID that is written on the chip, and it has a connector to connect the cable to it. The cable acts as an interface between the computer and the router or modem. NIC is a layer 2 device which means that it works on both the physical and data link layers of the network model.
+
+## How Data Travels Through the Internet
+
+![alt text](src/Diagram-1.gif)
+
+#### Step 1: Data Origination
+The journey of data through the internet begins at the source, where it is created or transmitted. This could be a computer, smartphone, or any other device that can send data over the internet. When you type an email, upload a file, or send a message, the data is generated at this end.
+
+#### Step 2: Network Interface
+Once the data is generated, it reaches the network interface of the sending device. This could be an Ethernet port, Wi-Fi antenna, or any other device that enables communication over the internet. The network interface converts the digital data into analog signals, which can travel through the physical medium (cable) to reach the next device.
+
+#### Step 3: Routing:
+The data now travels through a network of routers and switches, which direct it towards its destination. These devices use complex algorithms to determine the shortest path for data to reach its final destination. The data may pass through multiple routers and switches before it reaches its final destination. Each device in the network has a unique address, known as an IP (Internet Protocol) address, which helps identify the data’s destination.
+
+#### Step 4: Transit Network:
+After the data leaves the last router on its path, it enters the transit network. This is the internet backbone, where high-speed connections between major networks and countries exist. The transit network is responsible for carrying a significant portion of the world’s internet traffic, and it uses specialized hardware and software to ensure efficient data transmission.
+
+#### Step 5: Internet Exchange (IX):
+The next stop for the data is an internet exchange (IX), which is a physical location where multiple networks meet. At the IX, the data is exchanged between different networks, ensuring that it reaches its final destination quickly and efficiently.
+
+#### Step 6: Last Mile Connection:
+Finally, the data reaches the last mile connection, which is the final leg of the journey to the recipient’s device. This could be a home network, office network, or any other local area network (LAN). The data is transmitted over a short distance using a high-speed connection, such as fiber optic cables or DSL lines.
+
+#### Step 7: Reception and Processing:
+Once the data reaches the recipient’s device, it is received and processed by the operating system and applications. The data is converted back into binary digits, which are then interpreted by the recipient’s device to display the content or execute the instructions.
+
+#### Conclusion:
+In conclusion, data travels through the internet in a complex but well-organized manner. From the origination point to the final destination, the data passes through various devices and networks, each playing a crucial role in ensuring efficient transmission. Understanding how data travels through the internet can help you appreciate the technology behind it and the effort that goes into making it possible for us to communicate, work, and access information across the globe.
