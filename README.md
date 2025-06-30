@@ -4,15 +4,15 @@
 ---
 
 ## 📌 **Table of Contents**  
-1. [OSI Model](#-the-osi-model)  
-2. [TCP vs UDP](#-tcp-vs-udp-key-differences)  
+1. [OSI Model](#-osi-model)  
+2. [TCP/IP PROTOCOL SUITE](#-TCP/IP-PROTOCOL-SUITE)  
 3. [IP Addresses & Subnet Masks](#-ip-addresses--subnet-masks)  
 4. [Network Devices](#-network-devices-explained)  
 5. [How Data Travels](#-how-data-travels-across-networks)  
 
 ---
 
-## 🧩 **The OSI Model**  
+## 🧩 **OSI Model**  
 ![alt text](https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png)
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or networking system, dividing it into seven layers. This model helps in understanding how different network components interact to enable communication between devices, regardless of their underlying technology. created by ISO (International Organization for Standardization), think about layers like a steps to communicat between devices.
@@ -177,3 +177,19 @@ Remote log-in Accessing the web (WWW)
 
 ---
 
+
+## **TCP/IP PROTOCOL SUITE**
+
+The layers in the TCP/IP protocol suite do not exactly match those in the OSI model. However, when TCP/IP is compared to OSI, we can say that the TCP/IP protocol suite is made of five layers: physical, data link, network, transport, and application.
+Topics discussed in this section:
+Physical and Data Link Layers
+Network Layer
+Transport Layer Application Layer
+
+![alt text](src/slide_58.jpg)
+
+Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits; every byte (2 hexadecimal digits) is separated by a colon, as shown below:
+```
+07:01:02:01:2C:4B
+```
+A 6-byte (12 hexadecimal digits) physical address.
