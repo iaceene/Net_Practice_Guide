@@ -418,3 +418,61 @@ Let’s summarize all the things we’ve learned:
 - The router then again checks for the private IP and private port and forwards the network packets.
 
 So, this is how the Internet aka A kind of Computer Network using TCP/IP protocol works.
+
+## Network Devices (Hub, Repeater, Bridge, Switch, Router, Gateways and Brouter)
+
+Network devices are physical devices that allow hardware on a computer network to communicate and interact with each other. Network devices like hubs, repeaters, bridges, switches, routers, gateways, and brouter help manage and direct data flow in a network. They ensure efficient communication between connected devices by controlling data transfer, boosting signals, and linking different networks. Each device serves a specific role, from simple data forwarding to complex routing between networks. In this article, we are going to discuss different types of network devices in detail.
+![alt text](src/Common-Types-of-Network-Devices-1.png)
+
+#### Functions of Network Devices
+- Network devices help to send and receive data between different devices.
+- Network devices allow devices to connect to the network efficiently and securely.
+- Network devices improves network speed and manage data flow better.
+- It protects the network by controlling access and preventing threats.
+Expand the network range and solve signal problems.
+
+#### Common Types of Networking Devices and Their Uses
+Network devices work as a mediator between two devices for transmission of data, and thus play a very important role in the functioning of a computer network. Below are some common network devices used in modern networks:
+
+- Access Point
+- Modems
+- Repeater
+- Switch
+- Routers
+- Brouter
+- NIC
+
+#### Access Point
+An access point in networking is a device that allows wireless devices, like smartphones and laptops, to connect to a wired network. It creates a Wi-Fi network that lets wireless devices communicate with the internet or other devices on the network. Access points are used to extend the range of a network or provide Wi-Fi in areas that do not have it. They are commonly found in homes, offices, and public places to provide wireless internet access.
+#### Modems
+Modem is also known as modulator/demodulator is a network device that is used to convert digital signal into analog signals of different frequencies and transmits these signals to a modem at the receiving location. These converted signals can be transmitted over the cable systems, telephone lines, and other communication mediums. A modem is also used to convert an analog signal back into digital signal. Modems are generally used to access the internet by customers of an Internet Service Provider (ISP).
+
+Types of Modems
+There are four main types of modems:
+
+DSL Modem: Uses regular phone lines to connect to the internet but it is slower compared to other types.
+- Cable Modem: Sends data through TV cables, providing faster internet than DSL.
+- Wireless Modem: Connects devices to the internet using Wi-Fi relying on nearby Wi-Fi signals.
+- Cellular Modem: Connects to the internet using mobile data from a cellular network not Wi-Fi or fixed cables.
+#### Repeater
+A repeater operates at the physical layer. Its main function is to amplify (i.e., regenerate) the signal over the same network before the signal becomes too weak or corrupted to extend the length to which the signal can be transmitted over the same network. When the signal becomes weak, they copy it bit by bit and regenerate it at its star topology connectors connecting following the original strength. It is a 2-port device.
+#### Switch
+A switch is a multiport bridge with a buffer designed that can boost its efficiency(a large number of ports imply less traffic) and performance. A switch is a data link layer device. The switch can perform error checking before forwarding data, which makes it very efficient as it does not forward packets that have errors and forward good packets selectively to the correct port only.  In other words, the switch divides the collision domain of hosts, but the broadcast domain remains the same.
+
+##### Types of  Switch
+- Unmanaged Switches: These switches have a simple plug-and-play design and do not offer advanced configuration options. They are suitable for small networks or for use as an expansion to a larger network.
+- Managed Switches: These switches offer advanced configuration options such as VLANs, QoS, and link aggregation. They are suitable for larger, more complex networks and allow for centralized management.
+- Smart Switches: These switches have features similar to managed switches but are typically easier to set up and manage. They are suitable for small- to medium-sized networks.
+- Layer 2 Switches: These switches operate at the Data Link layer of the OSI model and are responsible for forwarding data between devices on the same network segment.
+- Layer 3 switches: These switches operate at the Network layer of the OSI model and can route data between different network segments. They are more advanced than Layer 2 switches and are often used in larger, more complex networks.
+- PoE Switches: These switches have Power over Ethernet capabilities, which allows them to supply power to network devices over the same cable that carries data.
+- Gigabit switches: These switches support Gigabit Ethernet speeds, which are faster than traditional Ethernet speeds.
+- Rack-Mounted Switches: These switches are designed to be mounted in a server rack and are suitable for use in data centers or other large networks.
+- Desktop Switches: These switches are designed for use on a desktop or in a small office environment and are typically smaller in size than rack-mounted switches.
+- Modular Switches: These switches have modular design that allows for easy expansion or customization. They are suitable for large networks and data centers.
+
+#### Router
+A router is a device like a switch that routes data packets based on their IP addresses. The router is mainly a Network Layer device. Routers normally connect LANs and WANs and have a dynamically updating routing table based on which they make decisions on routing the data packets. The router divides the broadcast domains of hosts connected through it.
+
+#### NIC
+NIC or network interface card is a network adapter that is used to connect the computer to the network. It is installed in the computer to establish a LAN.  It has a unique ID that is written on the chip, and it has a connector to connect the cable to it. The cable acts as an interface between the computer and the router or modem. NIC is a layer 2 device which means that it works on both the physical and data link layers of the network model.
