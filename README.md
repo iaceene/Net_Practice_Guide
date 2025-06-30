@@ -192,3 +192,9 @@ Most local-area networks use a 48-bit (6-byte) physical address written as 12 he
 07:01:02:01:2C:4B
 ```
 A 6-byte (12 hexadecimal digits) physical address.
+
+---
+
+## **IP Addresses & Subnet Masks**
+
+to be con....
