@@ -1,11 +1,10 @@
-[![NetPractice](https://img.shields.io/badge/NetPractice-42-blue?style=for-the-badge)](https://iaceene.github.io/42_Subjects/?subject=NetPractice)
-
+[![NetPractice](https://img.shields.io/badge/SUBJECT-42-blue?style=for-the-badge)](https://iaceene.github.io/42_Subjects/?subject=NetPractice) [![NetPractice](https://img.shields.io/badge/ONLINE_SIMULATOR-42-green?style=for-the-badge)](https://iaceene.github.io/Net_Practice_42)
 
 ---
 
 ## 📌 **Table of Contents**  
 1. [OSI Model](#-osi-model)  
-2. [TCP/IP PROTOCOL SUITE](#-TCP/IP-PROTOCOL-SUITE)  
+2. [TCP/IP PROTOCOL SUITE](#-tcp-ip-protocol-suite)  
 3. [IP Addresses & Subnet Masks](#-ip-addresses--subnet-masks)  
 4. [Network Devices](#-network-devices-explained)  
 5. [How Data Travels](#-how-data-travels-across-networks)  
