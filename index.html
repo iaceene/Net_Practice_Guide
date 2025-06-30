@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,10 @@
         }
 
         body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -44,7 +49,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 80%, rgba(120, 58, 237, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
@@ -53,8 +58,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         /* Header */
@@ -319,7 +331,7 @@
             height: 12px;
             background: var(--success);
             border-radius: 50%;
-            box-shadow: 
+            box-shadow:
                 -20px 0 0 var(--warning),
                 -40px 0 0 #ef4444;
         }
@@ -338,7 +350,8 @@
         }
 
         /* Lists */
-        ul, ol {
+        ul,
+        ol {
             margin: 1.5rem 0;
             padding-left: 2rem;
         }
@@ -404,6 +417,7 @@
                 opacity: 0;
                 transform: translateY(2rem);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -472,6 +486,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Progress bar -->
     <div class="progress-bar" id="progressBar"></div>
@@ -494,11 +509,10 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <h1>Master Computer Networking</h1>
             <p class="subtitle">Complete guide to understanding networks, protocols, and data communication</p>
-            
+
             <div class="badges">
                 <a href="https://iaceene.github.io/42_Subjects/?subject=NetPractice" class="badge">
                     📚 42 Subject Guide
@@ -509,7 +523,6 @@
             </div>
         </section>
 
-        <!-- Table of Contents -->
         <div class="toc animate-on-scroll">
             <h2>📌 Table of Contents</h2>
             <ol>
@@ -524,36 +537,52 @@
         <!-- OSI Model Section -->
         <section class="section animate-on-scroll" id="osi-model">
             <h2>🧩 OSI Model</h2>
-            
+
             <div class="network-diagram">
-                <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png" alt="OSI Model 7 Layers" />
+                <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png"
+                    alt="OSI Model 7 Layers" />
             </div>
 
-            <p>The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or networking system, dividing it into seven layers. This model helps in understanding how different network components interact to enable communication between devices, regardless of their underlying technology.</p>
+            <p>The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of
+                a telecommunication or networking system, dividing it into seven layers. This model helps in
+                understanding how different network components interact to enable communication between devices,
+                regardless of their underlying technology.</p>
 
             <div class="highlight-box">
-                <p><strong>Key Concept:</strong> Created by ISO (International Organization for Standardization), think about layers like steps to communicate between devices. These steps happen in both devices - the sender and receiver do these steps in reverse. If the sender goes from 7 to 1, receiver goes from 1 to 7.</p>
+                <p><strong>Key Concept:</strong> Created by ISO (International Organization for Standardization), think
+                    about layers like steps to communicate between devices. These steps happen in both devices - the
+                    sender and receiver do these steps in reverse. If the sender goes from 7 to 1, receiver goes from 1
+                    to 7.</p>
             </div>
 
             <div class="info-card">
                 <h3>Data Transformation Process</h3>
-                <p><strong>At sender:</strong> At each layer, a header can be added to the data unit. At layer 2 a trailer is added as well. When formatted data unit passes through physical layer it is changed into an electromagnetic signal and transported along physical link.</p>
-                
-                <p><strong>Encapsulation:</strong> A packet (header and data) at level 5 is encapsulated in a packet in level 4, and so on. The data portion of packet at level N-1 carries the whole packet (data and header/trailer) from level N.</p>
-                
-                <p><strong>At destination:</strong> Data then moves back up through the layers. Headers and trailers attached to data at the corresponding layer are removed (decapsulated) and action appropriate to that layer are taken. At layer 5 the message is again in form appropriate to the application and is made available to user.</p>
+                <p><strong>At sender:</strong> At each layer, a header can be added to the data unit. At layer 2 a
+                    trailer is added as well. When formatted data unit passes through physical layer it is changed into
+                    an electromagnetic signal and transported along physical link.</p>
+
+                <p><strong>Encapsulation:</strong> A packet (header and data) at level 5 is encapsulated in a packet in
+                    level 4, and so on. The data portion of packet at level N-1 carries the whole packet (data and
+                    header/trailer) from level N.</p>
+
+                <p><strong>At destination:</strong> Data then moves back up through the layers. Headers and trailers
+                    attached to data at the corresponding layer are removed (decapsulated) and action appropriate to
+                    that layer are taken. At layer 5 the message is again in form appropriate to the application and is
+                    made available to user.</p>
             </div>
 
             <h3>OSI Layers Breakdown</h3>
 
             <h4>1. Physical Layer</h4>
             <p>The physical layer is responsible for movements of individual bits from one hop (node) to the next.</p>
-            
+
             <ul>
-                <li><strong>Physical characteristics:</strong> Defines the interface between devices and media, including transmission media type</li>
+                <li><strong>Physical characteristics:</strong> Defines the interface between devices and media,
+                    including transmission media type</li>
                 <li><strong>Representation of bits:</strong> Defines how 0s and 1s are changed to signals</li>
                 <li><strong>Data rate:</strong> Defines number of bits sent per second and duration of bits</li>
-                <li><strong>Synchronization:</strong> Sender and receiver must use same bit rate and synchronized clocks</li>
+                <li><strong>Synchronization:</strong> Sender and receiver must use same bit rate and synchronized clocks
+                </li>
                 <li><strong>Line configuration:</strong> Point-to-point or multipoint connections</li>
                 <li><strong>Physical topology:</strong> Star, mesh, bus, ring, or hybrid topology</li>
                 <li><strong>Transmission mode:</strong> Simplex, half-duplex, or full-duplex</li>
@@ -561,7 +590,7 @@
 
             <h4>2. Data Link Layer (Hop to Hop Delivery)</h4>
             <p>The data link layer is responsible for moving frames from one hop (node) to the next.</p>
-            
+
             <ul>
                 <li><strong>Framing:</strong> Divides bit stream into data units called frames</li>
                 <li><strong>Physical addressing:</strong> Adds header with sender and receiver addresses</li>
@@ -571,20 +600,27 @@
             </ul>
 
             <div class="highlight-box">
-                <p><strong>MAC Address Example:</strong> Known as the MAC or link address, it's the address of a node as defined by its LAN or WAN. Ethernet uses 6-bytes (48-bits) physical address imprinted on the NIC.</p>
+                <p><strong>MAC Address Example:</strong> Known as the MAC or link address, it's the address of a node as
+                    defined by its LAN or WAN. Ethernet uses 6-bytes (48-bits) physical address imprinted on the NIC.
+                </p>
             </div>
 
             <h4>3. Network Layer (End to End Delivery)</h4>
-            <p>The network layer is responsible for the delivery of individual packets from source host to destination host across multiple networks.</p>
-            
+            <p>The network layer is responsible for the delivery of individual packets from source host to destination
+                host across multiple networks.</p>
+
             <ul>
                 <li><strong>Logical addressing:</strong> Adds unique identifier (IP address) to packets</li>
-                <li><strong>Routing:</strong> Provides routing mechanism for routers to route packets to final destination</li>
+                <li><strong>Routing:</strong> Provides routing mechanism for routers to route packets to final
+                    destination</li>
             </ul>
 
             <div class="info-card">
-                <p><strong>IP Addresses:</strong> IP addresses are necessary for universal communications independent of physical network. No two host addresses on the internet can have the same IP address. IP addresses are 32-bit addresses that uniquely define a host connected to the Internet.</p>
-                <p><strong>Key Point:</strong> Physical addresses change from hop to hop, but logical addresses remain the same.</p>
+                <p><strong>IP Addresses:</strong> IP addresses are necessary for universal communications independent of
+                    physical network. No two host addresses on the internet can have the same IP address. IP addresses
+                    are 32-bit addresses that uniquely define a host connected to the Internet.</p>
+                <p><strong>Key Point:</strong> Physical addresses change from hop to hop, but logical addresses remain
+                    the same.</p>
             </div>
 
             <h4>4. Transport Layer</h4>
@@ -621,12 +657,15 @@
         <!-- TCP/IP Section -->
         <section class="section animate-on-scroll" id="tcp-ip">
             <h2>🌐 TCP/IP Protocol Suite</h2>
-            
-            <p>The layers in the TCP/IP protocol suite do not exactly match those in the OSI model. However, when TCP/IP is compared to OSI, we can say that the TCP/IP protocol suite is made of five layers: physical, data link, network, transport, and application.</p>
+
+            <p>The layers in the TCP/IP protocol suite do not exactly match those in the OSI model. However, when TCP/IP
+                is compared to OSI, we can say that the TCP/IP protocol suite is made of five layers: physical, data
+                link, network, transport, and application.</p>
 
             <div class="info-card">
                 <h3>Physical Addressing in TCP/IP</h3>
-                <p>Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits; every byte (2 hexadecimal digits) is separated by a colon:</p>
+                <p>Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits;
+                    every byte (2 hexadecimal digits) is separated by a colon:</p>
                 <pre><code>07:01:02:01:2C:4B</code></pre>
                 <p>A 6-byte (12 hexadecimal digits) physical address.</p>
             </div>
@@ -635,29 +674,38 @@
         <!-- IP Addresses Section -->
         <section class="section animate-on-scroll" id="ip-addresses">
             <h2>🏠 IP Addresses & Subnet Masks</h2>
-            
-            <p>Let us first look at the working definition of computer networks: Computer networks can be defined as the exchange of network packets between computing machines across the world with the help of data lines like wire cables, optical fibers, etc.</p>
+
+            <p>Let us first look at the working definition of computer networks: Computer networks can be defined as the
+                exchange of network packets between computing machines across the world with the help of data lines like
+                wire cables, optical fibers, etc.</p>
 
             <h3>Commonly Used Terms in Computer Networks</h3>
 
             <h4>Nodes</h4>
-            <p>Nodes in computer networks mean any computing device such as computers, mobile phones, tablets, etc which try to send and receive network packets across the network to another similar device.</p>
+            <p>Nodes in computer networks mean any computing device such as computers, mobile phones, tablets, etc which
+                try to send and receive network packets across the network to another similar device.</p>
 
             <h4>Network Packets</h4>
-            <p>Network packets are nothing but the information or units of data that a source node wants to send/receive to/from the destination node.</p>
+            <p>Network packets are nothing but the information or units of data that a source node wants to send/receive
+                to/from the destination node.</p>
 
             <h4>Internet Protocol (IPs)</h4>
-            <p>Consider you want to send a birthday gift to your friend on their birthday, where will you send it? To their street address right? Same is the case here. An IP of a computer device is the address of that device in a computer network.</p>
+            <p>Consider you want to send a birthday gift to your friend on their birthday, where will you send it? To
+                their street address right? Same is the case here. An IP of a computer device is the address of that
+                device in a computer network.</p>
 
             <div class="highlight-box">
-                <p><strong>Technical Definition:</strong> An IP address is a 32-bit number used which identifies devices in a network. All communication to and from the device in that network will be done in terms of its IP address.</p>
+                <p><strong>Technical Definition:</strong> An IP address is a 32-bit number used which identifies devices
+                    in a network. All communication to and from the device in that network will be done in terms of its
+                    IP address.</p>
             </div>
 
             <h3>IP Address Types</h3>
-            
+
             <ul>
                 <li><strong>IPv4:</strong> 32 bits (four bytes). Example: 104.244.42.129 (twitter.com's IPv4)</li>
-                <li><strong>IPv6:</strong> Eight hexadecimal numbers separated by ":". Example: 2001:0cb8:85a3:0000:0000:8a2e:0370:7334</li>
+                <li><strong>IPv6:</strong> Eight hexadecimal numbers separated by ":". Example:
+                    2001:0cb8:85a3:0000:0000:8a2e:0370:7334</li>
             </ul>
 
             <h3>IP Address Classes</h3>
@@ -694,16 +742,20 @@
 
             <h3>Static vs Dynamic IP Addresses</h3>
             <ul>
-                <li><strong>Static:</strong> IP addresses that remain constant for a device over time. Used for servers.</li>
+                <li><strong>Static:</strong> IP addresses that remain constant for a device over time. Used for servers.
+                </li>
                 <li><strong>Dynamic:</strong> IP addresses that change over time. Allocated by DHCP servers.</li>
             </ul>
 
             <div class="highlight-box">
-                <p><strong>Important Note:</strong> A device can have multiple IP addresses at the same time. IP addresses are assigned to interfaces, not directly to computers.</p>
+                <p><strong>Important Note:</strong> A device can have multiple IP addresses at the same time. IP
+                    addresses are assigned to interfaces, not directly to computers.</p>
             </div>
 
             <h3>Network Address Translation (NAT)</h3>
-            <p>Network address translation is a technique used by routers to provide internet service to more devices with less usage of public IPs. A router is assigned a single IP address by the ISP and assigns private IPs to all connected devices.</p>
+            <p>Network address translation is a technique used by routers to provide internet service to more devices
+                with less usage of public IPs. A router is assigned a single IP address by the ISP and assigns private
+                IPs to all connected devices.</p>
 
             <div class="info-card">
                 <h4>NAT Example</h4>
@@ -713,10 +765,12 @@ Public connection: 104.244.42.129:59273 → 72.14.204.147:80</code></pre>
             </div>
 
             <h3>Dynamic Host Configuration Protocol (DHCP)</h3>
-            <p>DHCP is responsible for assigning dynamic IP addresses to hosts. The DHCP server is maintained by the ISP or router and handles automatic IP allocation.</p>
+            <p>DHCP is responsible for assigning dynamic IP addresses to hosts. The DHCP server is maintained by the ISP
+                or router and handles automatic IP allocation.</p>
 
             <h3>Domain Name System (DNS)</h3>
-            <p>A Domain Name Server contains huge records of domain name to IP address mappings. When you type a URL, DNS servers translate the domain name to the corresponding IP address.</p>
+            <p>A Domain Name Server contains huge records of domain name to IP address mappings. When you type a URL,
+                DNS servers translate the domain name to the corresponding IP address.</p>
 
             <div class="info-card">
                 <h4>How DNS Works</h4>
@@ -733,7 +787,8 @@ Public connection: 104.244.42.129:59273 → 72.14.204.147:80</code></pre>
             <p>ISPs provide internet access and are organized in a hierarchical structure:</p>
             <ul>
                 <li><strong>Tier 1 ISPs:</strong> Major highways of the internet, connected to almost every network</li>
-                <li><strong>Tier 2 ISPs:</strong> Regional ISPs that provide services to organizations and consumers</li>
+                <li><strong>Tier 2 ISPs:</strong> Regional ISPs that provide services to organizations and consumers
+                </li>
                 <li><strong>Tier 3 ISPs:</strong> Local ISPs that purchase bandwidth from Tier 2 ISPs</li>
             </ul>
         </section>
@@ -741,10 +796,44 @@ Public connection: 104.244.42.129:59273 → 72.14.204.147:80</code></pre>
         <!-- Network Devices Section -->
         <section class="section animate-on-scroll" id="devices">
             <h2>🔧 Network Devices</h2>
-            
-            <p>Network devices are physical devices that allow hardware on a computer network to communicate and interact with each other. They ensure efficient communication between connected devices by controlling data transfer, boosting signals, and linking different networks.</p>
+
+            <p>Network devices are physical devices that allow hardware on a computer network to communicate and
+                interact with each other. They ensure efficient communication between connected devices by controlling
+                data transfer, boosting signals, and linking different networks.</p>
 
             <h3>Functions of Network Devices</h3>
             <ul>
                 <li>Send and receive data between different devices</li>
                 <li>Allow devices to connect
+                                </ul>
+        </section>
+
+        <!-- Add any additional sections if needed -->
+
+    </main>
+
+    <script>
+        // Add JavaScript functionality here if needed
+        // For example, the progress bar functionality:
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
