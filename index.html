@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetPractice - Network Fundamentals Guide</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>NetPractice - Master Computer Networking</title>
     <style>
         * {
             margin: 0;
@@ -14,789 +12,739 @@
         }
 
         :root {
-            --bg-primary: #0f0f14;
-            --bg-secondary: #1a1a24;
-            --bg-tertiary: #2a2a3a;
-            --bg-card: #1e1e2e;
-            --text-primary: #f0f0f5;
-            --text-secondary: #b8b8c8;
-            --text-muted: #8a8a9a;
-            --accent: #6366f1;
-            --accent-secondary: #8b5cf6;
-            --accent-glow: #6366f150;
-            --border: #3a3a4a;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --code-bg: #1a1a2e;
-            --code-border: #2d2d44;
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #1a1f35;
+            --bg-tertiary: #2d3748;
+            --accent-primary: #64ffda;
+            --accent-secondary: #7c3aed;
+            --text-primary: #e2e8f0;
+            --text-secondary: #cbd5e0;
+            --text-muted: #a0aec0;
+            --border-color: #4a5568;
+            --code-bg: #1e293b;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.75;
-            font-size: 17px;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            border-radius: 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--accent-glow);
-        }
-
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--accent-glow);
-        }
-
-        .main-title {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 40px var(--accent-glow);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        /* Navigation */
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(15, 15, 20, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 1rem;
-            margin-bottom: 3rem;
-            z-index: 100;
-            animation: slideInUp 0.8s ease-out;
-        }
-
-        .nav-title {
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .nav-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 0.5rem;
-            list-style: none;
-        }
-
-        .nav-item a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .nav-item a:hover {
-            background: var(--bg-tertiary);
-            color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        /* Content Sections */
-        .section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .section:nth-child(even) {
-            animation-delay: 0.2s;
-        }
-
-        .section:nth-child(odd) {
-            animation-delay: 0.1s;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-title::before {
+        /* Animated background */
+        body::before {
             content: '';
-            width: 4px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            border-radius: 2px;
-        }
-
-        .subsection-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 2rem 0 1rem 0;
-            padding-left: 1rem;
-            border-left: 3px solid var(--accent);
-        }
-
-        .sub-subsection-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--accent-secondary);
-            margin: 1.5rem 0 1rem 0;
-        }
-
-        /* Cards and Content */
-        .content-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, var(--accent-glow), rgba(139, 92, 246, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-        }
-
-        /* Code Blocks */
-        .code-block {
-            background: var(--code-bg);
-            border: 1px solid var(--code-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            position: relative;
-        }
-
-        .code-block::before {
-            content: 'CODE';
-            position: absolute;
-            top: 0.5rem;
-            right: 1rem;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .code-block code {
-            color: #f8f8f2;
-        }
-
-        /* Lists */
-        ul,
-        ol {
-            padding-left: 2rem;
-            margin: 1rem 0;
-        }
-
-        li {
-            margin: 0.5rem 0;
-            color: var(--text-secondary);
-        }
-
-        li::marker {
-            color: var(--accent);
-        }
-
-        /* Images */
-        .image-container {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1rem;
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .image-placeholder {
-            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-card));
-            border: 2px dashed var(--border);
-            border-radius: 8px;
-            padding: 3rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin: 1rem 0;
-        }
-
-        /* Progress Bar */
-        .progress-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--bg-secondary);
-            z-index: 1000;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: gradientShift 20s ease infinite;
         }
 
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-primary);
+            background: var(--glass-bg);
+        }
+
+        /* Progress bar */
         .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            z-index: 1001;
             transition: width 0.3s ease;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Main content */
+        main {
+            margin-top: 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 6rem;
+            position: relative;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
         }
 
-        /* Responsive Design */
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(100, 255, 218, 0.2);
+        }
+
+        /* Table of contents */
+        .toc {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .toc h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .toc a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-right: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .toc a:hover {
+            background: var(--glass-bg);
+            color: var(--accent-primary);
+            transform: translateX(0.5rem);
+        }
+
+        /* Section styling */
+        .section {
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(2rem);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 4rem;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            font-size: 1.75rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent-primary);
+        }
+
+        .section h4 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .section h5 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--accent-secondary);
+        }
+
+        .section p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 70ch;
+        }
+
+        /* Image styling */
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .section img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Code blocks */
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        pre::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 
+                -20px 0 0 var(--warning),
+                -40px 0 0 #ef4444;
+        }
+
+        code {
+            font-family: 'Fira Code', 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+        }
+
+        p code {
+            background: var(--code-bg);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Info cards */
+        .info-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            .container {
+            .header-content {
                 padding: 1rem;
             }
 
-            .main-title {
-                font-size: 2.5rem;
+            .nav-menu {
+                display: none;
             }
 
-            .section-title {
-                font-size: 2rem;
+            main {
+                padding: 1rem;
             }
 
-            .nav-list {
-                grid-template-columns: 1fr;
+            .hero {
+                padding: 2rem 0 4rem;
             }
 
             .badges {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .toc {
+                padding: 1.5rem;
+            }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(2rem);
+            transition: all 0.8s ease;
         }
 
-        th,
-        td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        th {
-            background: var(--bg-tertiary);
-            color: var(--accent);
-            font-weight: 600;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        tr:hover {
-            background: rgba(99, 102, 241, 0.05);
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Highlight box for important content */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(120, 58, 237, 0.1));
+            border: 1px solid var(--accent-primary);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Network diagram styles */
+        .network-diagram {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
-
 <body>
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-    </div>
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-    <div class="container">
-        <header class="header">
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">NetPractice</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#osi-model">OSI Model</a></li>
+                    <li><a href="#tcp-ip">TCP/IP</a></li>
+                    <li><a href="#ip-addresses">IP & Subnets</a></li>
+                    <li><a href="#devices">Devices</a></li>
+                    <li><a href="#data-travel">Data Flow</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <h1>Master Computer Networking</h1>
+            <p class="subtitle">Complete guide to understanding networks, protocols, and data communication</p>
+            
             <div class="badges">
-                <a href="#" class="badge">
-                    <i class="fas fa-graduation-cap"></i> 42 SUBJECT
+                <a href="https://iaceene.github.io/42_Subjects/?subject=NetPractice" class="badge">
+                    📚 42 Subject Guide
                 </a>
-                <a href="#" class="badge">
-                    <i class="fas fa-desktop"></i> ONLINE SIMULATOR
+                <a href="https://iaceene.github.io/Net_Practice_42" class="badge">
+                    🎮 Online Simulator
                 </a>
             </div>
+        </section>
 
-            <h1 class="main-title">NetPractice</h1>
-            <p class="subtitle">Complete Guide to Network Fundamentals & TCP/IP</p>
-        </header>
+        <!-- Table of Contents -->
+        <div class="toc animate-on-scroll">
+            <h2>📌 Table of Contents</h2>
+            <ol>
+                <li><a href="#osi-model">OSI Model</a></li>
+                <li><a href="#tcp-ip">TCP/IP Protocol Suite</a></li>
+                <li><a href="#ip-addresses">IP Addresses & Subnet Masks</a></li>
+                <li><a href="#devices">Network Devices</a></li>
+                <li><a href="#data-travel">How Data Travels</a></li>
+            </ol>
+        </div>
 
-        <nav class="nav">
-            <div class="nav-title">
-                <i class="fas fa-list"></i> Table of Contents
+        <!-- OSI Model Section -->
+        <section class="section animate-on-scroll" id="osi-model">
+            <h2>🧩 OSI Model</h2>
+            
+            <div class="network-diagram">
+                <img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png" alt="OSI Model 7 Layers" />
             </div>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#osi-model">
-                        <i class="fas fa-layer-group"></i>
-                        OSI Model
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tcp-ip">
-                        <i class="fas fa-network-wired"></i>
-                        TCP/IP Protocol Suite
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#ip-addresses">
-                        <i class="fas fa-map-marked-alt"></i>
-                        IP Addresses & Subnet Masks
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#network-devices">
-                        <i class="fas fa-server"></i>
-                        Network Devices
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#data-travel">
-                        <i class="fas fa-route"></i>
-                        How Data Travels
-                    </a>
-                </li>
+
+            <p>The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or networking system, dividing it into seven layers. This model helps in understanding how different network components interact to enable communication between devices, regardless of their underlying technology.</p>
+
+            <div class="highlight-box">
+                <p><strong>Key Concept:</strong> Created by ISO (International Organization for Standardization), think about layers like steps to communicate between devices. These steps happen in both devices - the sender and receiver do these steps in reverse. If the sender goes from 7 to 1, receiver goes from 1 to 7.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Data Transformation Process</h3>
+                <p><strong>At sender:</strong> At each layer, a header can be added to the data unit. At layer 2 a trailer is added as well. When formatted data unit passes through physical layer it is changed into an electromagnetic signal and transported along physical link.</p>
+                
+                <p><strong>Encapsulation:</strong> A packet (header and data) at level 5 is encapsulated in a packet in level 4, and so on. The data portion of packet at level N-1 carries the whole packet (data and header/trailer) from level N.</p>
+                
+                <p><strong>At destination:</strong> Data then moves back up through the layers. Headers and trailers attached to data at the corresponding layer are removed (decapsulated) and action appropriate to that layer are taken. At layer 5 the message is again in form appropriate to the application and is made available to user.</p>
+            </div>
+
+            <h3>OSI Layers Breakdown</h3>
+
+            <h4>1. Physical Layer</h4>
+            <p>The physical layer is responsible for movements of individual bits from one hop (node) to the next.</p>
+            
+            <ul>
+                <li><strong>Physical characteristics:</strong> Defines the interface between devices and media, including transmission media type</li>
+                <li><strong>Representation of bits:</strong> Defines how 0s and 1s are changed to signals</li>
+                <li><strong>Data rate:</strong> Defines number of bits sent per second and duration of bits</li>
+                <li><strong>Synchronization:</strong> Sender and receiver must use same bit rate and synchronized clocks</li>
+                <li><strong>Line configuration:</strong> Point-to-point or multipoint connections</li>
+                <li><strong>Physical topology:</strong> Star, mesh, bus, ring, or hybrid topology</li>
+                <li><strong>Transmission mode:</strong> Simplex, half-duplex, or full-duplex</li>
             </ul>
-        </nav>
 
-        <main>
-            <section id="osi-model" class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-layer-group"></i>
-                    OSI Model
-                </h2>
+            <h4>2. Data Link Layer (Hop to Hop Delivery)</h4>
+            <p>The data link layer is responsible for moving frames from one hop (node) to the next.</p>
+            
+            <ul>
+                <li><strong>Framing:</strong> Divides bit stream into data units called frames</li>
+                <li><strong>Physical addressing:</strong> Adds header with sender and receiver addresses</li>
+                <li><strong>Flow control:</strong> Prevents overwhelming the receiver</li>
+                <li><strong>Error control:</strong> Detects and retransmits damaged or lost frames</li>
+                <li><strong>Access control:</strong> Determines which device controls the link</li>
+            </ul>
 
-                <div class="content-card">
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            📋 OSI Model 7 Layers Diagram
-                            <br><small>Visual representation of the 7-layer OSI model</small>
-                        </div>
-                    </div>
+            <div class="highlight-box">
+                <p><strong>MAC Address Example:</strong> Known as the MAC or link address, it's the address of a node as defined by its LAN or WAN. Ethernet uses 6-bytes (48-bits) physical address imprinted on the NIC.</p>
+            </div>
 
-                    <p>The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the
-                        functions of a telecommunication or networking system, dividing it into seven layers. This model
-                        helps in understanding how different network components interact to enable communication between
-                        devices, regardless of their underlying technology.</p>
+            <h4>3. Network Layer (End to End Delivery)</h4>
+            <p>The network layer is responsible for the delivery of individual packets from source host to destination host across multiple networks.</p>
+            
+            <ul>
+                <li><strong>Logical addressing:</strong> Adds unique identifier (IP address) to packets</li>
+                <li><strong>Routing:</strong> Provides routing mechanism for routers to route packets to final destination</li>
+            </ul>
 
-                    <div class="highlight-box">
-                        <strong>Key Concept:</strong> Created by ISO (International Organization for Standardization),
-                        think about layers like steps to communicate between devices. These steps or layers are 7, and
-                        when communication happens between two devices, the sender and receiver process these steps in
-                        reverse - if the sender goes from layer 7 to 1, the receiver goes from 1 to 7.
-                    </div>
-                </div>
+            <div class="info-card">
+                <p><strong>IP Addresses:</strong> IP addresses are necessary for universal communications independent of physical network. No two host addresses on the internet can have the same IP address. IP addresses are 32-bit addresses that uniquely define a host connected to the Internet.</p>
+                <p><strong>Key Point:</strong> Physical addresses change from hop to hop, but logical addresses remain the same.</p>
+            </div>
 
-                <div class="content-card">
-                    <h3 class="subsection-title">Data Transformation Process</h3>
+            <h4>4. Transport Layer</h4>
+            <p>Responsible for process-to-process delivery of the entire message.</p>
 
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            🔄 Data Transformation Diagram
-                            <br><small>How data transforms at each layer</small>
-                        </div>
-                    </div>
+            <h4>5. Session Layer</h4>
+            <p>The session layer is responsible for dialog control and synchronization.</p>
+            <ul>
+                <li><strong>Dialog control:</strong> Allows communication in half or full duplex</li>
+                <li><strong>Synchronization:</strong> Adds checkpoints for recovery in case of failure</li>
+            </ul>
 
-                    <div class="highlight-box">
-                        <h4><strong>At Sender:</strong></h4>
-                        <ul>
-                            <li>At each layer, a header can be added to the data unit</li>
-                            <li>At layer 2, a trailer is added as well</li>
-                            <li>When formatted data unit passes through physical layer, it is changed into an
-                                electromagnetic signal and transported along physical link</li>
-                        </ul>
+            <h4>6. Presentation Layer</h4>
+            <p>The presentation layer is responsible for translation, compression, and encryption.</p>
+            <ul>
+                <li><strong>Translation:</strong> Converts between sender and receiver formats</li>
+                <li><strong>Encryption-Decryption:</strong> Ensures privacy and security</li>
+                <li><strong>Compression:</strong> Reduces number of bits for multimedia transmission</li>
+            </ul>
 
-                        <h4><strong>Encapsulation:</strong></h4>
-                        <p>A packet (header and data) at level 5 is encapsulated in a packet in level 4, and so on. The
-                            data portion of packet at level N-1 carries the whole packet (data and header/trailer) from
-                            level N.</p>
+            <h4>7. Application Layer</h4>
+            <p>The application layer provides services to the user such as:</p>
+            <ul>
+                <li>Mail services</li>
+                <li>File transfer and access</li>
+                <li>Remote log-in</li>
+                <li>Accessing the web (WWW)</li>
+                <li><strong>Telnet:</strong> Remote system login</li>
+                <li><strong>HTTP:</strong> Web file transfers</li>
+                <li><strong>SMTP:</strong> Electronic mail</li>
+            </ul>
+        </section>
 
-                        <h4><strong>At Destination:</strong></h4>
-                        <ul>
-                            <li>Data then moves back up through the layers</li>
-                            <li>Headers and trailers attached to data at the corresponding layer are removed
-                                (decapsulated)</li>
-                            <li>At layer 5, the message is again in form appropriate to the application and is made
-                                available to user</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- TCP/IP Section -->
+        <section class="section animate-on-scroll" id="tcp-ip">
+            <h2>🌐 TCP/IP Protocol Suite</h2>
+            
+            <p>The layers in the TCP/IP protocol suite do not exactly match those in the OSI model. However, when TCP/IP is compared to OSI, we can say that the TCP/IP protocol suite is made of five layers: physical, data link, network, transport, and application.</p>
 
-                <div class="content-card">
-                    <h3 class="subsection-title">The 7 OSI Layers</h3>
+            <div class="info-card">
+                <h3>Physical Addressing in TCP/IP</h3>
+                <p>Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits; every byte (2 hexadecimal digits) is separated by a colon:</p>
+                <pre><code>07:01:02:01:2C:4B</code></pre>
+                <p>A 6-byte (12 hexadecimal digits) physical address.</p>
+            </div>
+        </section>
 
-                    <h4 class="sub-subsection-title">1. Physical Layer</h4>
-                    <p>The physical layer is responsible for movements of individual bits from one hop (node) to the
-                        next.</p>
+        <!-- IP Addresses Section -->
+        <section class="section animate-on-scroll" id="ip-addresses">
+            <h2>🏠 IP Addresses & Subnet Masks</h2>
+            
+            <p>Let us first look at the working definition of computer networks: Computer networks can be defined as the exchange of network packets between computing machines across the world with the help of data lines like wire cables, optical fibers, etc.</p>
 
-                    <div class="highlight-box">
-                        <strong>Key Functions:</strong>
-                        <ul>
-                            <li><strong>Physical characteristics:</strong> Defines the characteristics of the interface
-                                between devices and media</li>
-                            <li><strong>Representation of bits:</strong> Defines how 0s and 1s are changed to signals
-                            </li>
-                            <li><strong>Data rate:</strong> Defines the number of bits sent per second</li>
-                            <li><strong>Synchronization:</strong> Sender and receiver must use the same bit rate</li>
-                            <li><strong>Line configuration:</strong> Point-to-point or multipoint connections</li>
-                            <li><strong>Physical topology:</strong> Star, mesh, bus, ring, or hybrid</li>
-                            <li><strong>Transmission mode:</strong> Simplex, half-duplex, or full-duplex</li>
-                        </ul>
-                    </div>
+            <h3>Commonly Used Terms in Computer Networks</h3>
 
-                    <h4 class="sub-subsection-title">2. Data Link Layer (Hop to Hop Delivery)</h4>
-                    <p>The data link layer is responsible for moving frames from one hop (node) to the next.</p>
+            <h4>Nodes</h4>
+            <p>Nodes in computer networks mean any computing device such as computers, mobile phones, tablets, etc which try to send and receive network packets across the network to another similar device.</p>
 
-                    <div class="highlight-box">
-                        <strong>Key Functions:</strong>
-                        <ul>
-                            <li><strong>Framing:</strong> Divide the stream of bits into data units called frames</li>
-                            <li><strong>Physical addressing:</strong> Adds header with sender and receiver addresses
-                            </li>
-                            <li><strong>Flow control:</strong> Prevents overwhelming the receiver</li>
-                            <li><strong>Error control:</strong> Detects and retransmits damaged or lost frames</li>
-                            <li><strong>Access control:</strong> Determines which device has control over the link</li>
-                        </ul>
-                    </div>
+            <h4>Network Packets</h4>
+            <p>Network packets are nothing but the information or units of data that a source node wants to send/receive to/from the destination node.</p>
 
-                    <div class="code-block">
-                        <code>MAC Address Example: 07:01:02:01:2C:4B
-Ethernet uses 6-bytes (48-bits) physical address imprinted on the NIC</code>
-                    </div>
+            <h4>Internet Protocol (IPs)</h4>
+            <p>Consider you want to send a birthday gift to your friend on their birthday, where will you send it? To their street address right? Same is the case here. An IP of a computer device is the address of that device in a computer network.</p>
 
-                    <h4 class="sub-subsection-title">3. Network Layer (End to End Delivery)</h4>
-                    <p>The network layer is responsible for the delivery of individual packets from the source host to
-                        the destination host across multiple networks.</p>
+            <div class="highlight-box">
+                <p><strong>Technical Definition:</strong> An IP address is a 32-bit number used which identifies devices in a network. All communication to and from the device in that network will be done in terms of its IP address.</p>
+            </div>
 
-                    <div class="highlight-box">
-                        <strong>Key Functions:</strong>
-                        <ul>
-                            <li><strong>Logical addressing:</strong> Adds unique IP addresses to packets</li>
-                            <li><strong>Routing:</strong> Provides routing mechanism for routers to route packets to
-                                final destination</li>
-                        </ul>
-                    </div>
+            <h3>IP Address Types</h3>
+            
+            <ul>
+                <li><strong>IPv4:</strong> 32 bits (four bytes). Example: 104.244.42.129 (twitter.com's IPv4)</li>
+                <li><strong>IPv6:</strong> Eight hexadecimal numbers separated by ":". Example: 2001:0cb8:85a3:0000:0000:8a2e:0370:7334</li>
+            </ul>
 
-                    <p><strong>Important:</strong> IP addresses are 32-bit addresses that uniquely define a host
-                        connected to the Internet. No two hosts on the internet can have the same IP address. The
-                        logical addresses remain the same throughout the journey, while physical addresses change from
-                        hop to hop.</p>
+            <h3>IP Address Classes</h3>
+            <p>IPv4 is classified into five classes named Class A, B, C, D, E.</p>
 
-                    <h4 class="sub-subsection-title">5. Session Layer</h4>
-                    <p>The session layer is responsible for dialog control and synchronization.</p>
+            <div class="info-card">
+                <h4>Class A</h4>
+                <p>First bit of first octet is constant and is "0"</p>
+                <ul>
+                    <li>Default subnet mask: 255.0.0.0</li>
+                    <li>Network bits: 8, Host bits: 24</li>
+                    <li>Usable network bits: 7 (8-1 for class identification)</li>
+                    <li>Number of networks: 2^7 - 2 = 126</li>
+                    <li>Hosts per network: 2^24 - 2 = 16,777,214</li>
+                    <li>Range: 1.x.x.x to 126.x.x.x</li>
+                </ul>
+            </div>
 
-                    <div class="highlight-box">
-                        <strong>Key Functions:</strong>
-                        <ul>
-                            <li><strong>Dialog control:</strong> Allows communication in half or full duplex</li>
-                            <li><strong>Synchronization:</strong> Adds checkpoints for recovery in case of failure</li>
-                        </ul>
-                    </div>
+            <div class="info-card">
+                <h4>Class B</h4>
+                <p>First 2 bits are constant (10)</p>
+                <ul>
+                    <li>Range: 128.0.x.x to 191.255.x.x</li>
+                </ul>
+            </div>
 
-                    <h4 class="sub-subsection-title">6. Presentation Layer</h4>
-                    <p>The presentation layer is responsible for translation, compression, and encryption.</p>
+            <div class="info-card">
+                <h4>Class C</h4>
+                <p>First 3 bits are constant (110)</p>
+                <ul>
+                    <li>Range: 192.0.0.x to 223.255.255.x</li>
+                </ul>
+            </div>
 
-                    <div class="highlight-box">
-                        <strong>Key Functions:</strong>
-                        <ul>
-                            <li><strong>Translation:</strong> Converts between sender and receiver formats</li>
-                            <li><strong>Encryption/Decryption:</strong> Ensures privacy and security</li>
-                            <li><strong>Compression:</strong> Reduces the number of bits for efficient transmission</li>
-                        </ul>
-                    </div>
+            <h3>Static vs Dynamic IP Addresses</h3>
+            <ul>
+                <li><strong>Static:</strong> IP addresses that remain constant for a device over time. Used for servers.</li>
+                <li><strong>Dynamic:</strong> IP addresses that change over time. Allocated by DHCP servers.</li>
+            </ul>
 
-                    <h4 class="sub-subsection-title">7. Application Layer</h4>
-                    <p>The application layer is responsible for providing services to the user.</p>
+            <div class="highlight-box">
+                <p><strong>Important Note:</strong> A device can have multiple IP addresses at the same time. IP addresses are assigned to interfaces, not directly to computers.</p>
+            </div>
 
-                    <div class="highlight-box">
-                        <strong>Services Include:</strong>
-                        <ul>
-                            <li><strong>Telnet:</strong> Remote system login</li>
-                            <li><strong>HTTP:</strong> Web file transfers</li>
-                            <li><strong>SMTP:</strong> Electronic mail transfer</li>
-                            <li>Mail services, File transfer and access, Remote log-in, Web access</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <h3>Network Address Translation (NAT)</h3>
+            <p>Network address translation is a technique used by routers to provide internet service to more devices with less usage of public IPs. A router is assigned a single IP address by the ISP and assigns private IPs to all connected devices.</p>
 
-            <section id="tcp-ip" class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-network-wired"></i>
-                    TCP/IP Protocol Suite
-                </h2>
+            <div class="info-card">
+                <h4>NAT Example</h4>
+                <p>If you're accessing medium.com (72.14.204.147) from your computer (192.168.1.100):</p>
+                <pre><code>Private connection: 192.168.1.100:37641 → 72.14.204.147:80
+Public connection: 104.244.42.129:59273 → 72.14.204.147:80</code></pre>
+            </div>
 
-                <div class="content-card">
-                    <p>The layers in the TCP/IP protocol suite do not exactly match those in the OSI model. However,
-                        when TCP/IP is compared to OSI, we can say that the TCP/IP protocol suite is made of five
-                        layers: physical, data link, network, transport, and application.</p>
+            <h3>Dynamic Host Configuration Protocol (DHCP)</h3>
+            <p>DHCP is responsible for assigning dynamic IP addresses to hosts. The DHCP server is maintained by the ISP or router and handles automatic IP allocation.</p>
 
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            🌐 TCP/IP vs OSI Model Comparison
-                            <br><small>Visual comparison of TCP/IP and OSI models</small>
-                        </div>
-                    </div>
+            <h3>Domain Name System (DNS)</h3>
+            <p>A Domain Name Server contains huge records of domain name to IP address mappings. When you type a URL, DNS servers translate the domain name to the corresponding IP address.</p>
 
-                    <div class="highlight-box">
-                        <strong>TCP/IP Layers:</strong>
-                        <ul>
-                            <li><strong>Physical and Data Link Layers:</strong> Handle hardware addressing and physical
-                                transmission</li>
-                            <li><strong>Network Layer:</strong> Handles logical addressing and routing (IP)</li>
-                            <li><strong>Transport Layer:</strong> Provides reliable data transfer (TCP/UDP)</li>
-                            <li><strong>Application Layer:</strong> Combines Session, Presentation, and Application from
-                                OSI</li>
-                        </ul>
-                    </div>
+            <div class="info-card">
+                <h4>How DNS Works</h4>
+                <ol>
+                    <li>DNS is managed by your ISP</li>
+                    <li>When you type a URL, packets travel to your ISP's DNS server</li>
+                    <li>DNS server looks up the domain in its database</li>
+                    <li>If not found, it queries other DNS servers</li>
+                    <li>Returns the IP address or throws an error</li>
+                </ol>
+            </div>
 
-                    <p>Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits;
-                        every byte (2 hexadecimal digits) is separated by a colon:</p>
+            <h3>Internet Service Providers (ISPs)</h3>
+            <p>ISPs provide internet access and are organized in a hierarchical structure:</p>
+            <ul>
+                <li><strong>Tier 1 ISPs:</strong> Major highways of the internet, connected to almost every network</li>
+                <li><strong>Tier 2 ISPs:</strong> Regional ISPs that provide services to organizations and consumers</li>
+                <li><strong>Tier 3 ISPs:</strong> Local ISPs that purchase bandwidth from Tier 2 ISPs</li>
+            </ul>
+        </section>
 
-                    <div class="code-block">
-                        <code>07:01:02:01:2C:4B</code>
-                    </div>
-                    <p><em>A 6-byte (12 hexadecimal digits) physical address.</em></p>
-                </div>
-            </section>
+        <!-- Network Devices Section -->
+        <section class="section animate-on-scroll" id="devices">
+            <h2>🔧 Network Devices</h2>
+            
+            <p>Network devices are physical devices that allow hardware on a computer network to communicate and interact with each other. They ensure efficient communication between connected devices by controlling data transfer, boosting signals, and linking different networks.</p>
 
-            <section id="ip-addresses" class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-map-marked-alt"></i>
-                    IP Addresses & Subnet Masks
-                </h2>
-
-                <div class="content-card">
-                    <h3 class="subsection-title">Understanding Computer Networks</h3>
-                    <p>Computer networks can be defined as the exchange of network packets between computing machines
-                        across the world with the help of data lines like wire cables, optical fibers, etc.</p>
-
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            🌍 Network Infrastructure Diagram
-                            <br><small>Global network connections and data flow</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="subsection-title">Common Network Terms</h3>
-
-                    <h4 class="sub-subsection-title">Nodes</h4>
-                    <p>Nodes in computer networks mean any computing device such as computers, mobile phones, tablets,
-                        etc which try to send and receive network packets across the network to another similar device.
-                    </p>
-
-                    <h4 class="sub-subsection-title">Network Packets</h4>
-                    <p>Network packets are nothing but the information or units of data that a source node wants to
-                        send/receive to/from the destination node.</p>
-
-                    <h4 class="sub-subsection-title">Internet Protocol (IPs)</h4>
-                    <p>An IP of a computer device is the address of that device in a computer network. Technically, it
-                        is a 32-bit number which identifies devices in a network.</p>
-
-                    <div class="highlight-box">
-                        <strong>IP Types:</strong>
-                        <ul>
-                            <li><strong>IPv4:</strong> 32 bits (four bytes) - Example: 104.244.42.129</li>
-                            <li><strong>IPv6:</strong> Eight hexadecimal numbers separated by ":" - Example:
-                                2001:0cb8:85a3:0000:0000:8a2e:0370:7334</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="subsection-title">IPv4 Address Classes</h3>
-
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            📊 IP Address Classes Chart
-                            <br><small>Visual breakdown of Class A, B, C, D, E addresses</small>
-                        </div>
-                    </div>
-
-                    <h4 class="sub-subsection-title">Class A</h4>
-                    <div class="highlight-box">
-                        <ul>
-                            <li><strong>First bit:</strong> Always "0"</li>
-                            <li><strong>Default subnet mask:</strong> 255.0.0.0</li>
-                            <li><strong>Network bits:</strong> 8, Host bits: 24</li>
-                            <li><strong>Range:</strong> 1.x.x.x to 126.x.x.x</li>
-                            <li><strong>Networks:</strong> 2^7 - 2 = 126</li>
-                            <li><strong>Hosts per network:</strong> 2^24 - 2 = 16,777,214</li>
-                        </ul>
-                    </div>
-
-                    <h4 class="sub-subsection-title">Class B</h4>
-                    <div class="highlight-box">
-                        <ul>
-                            <li><strong>First two bits:</strong> "10"</li>
-                            <li><strong>Default subnet mask:</strong> 255.255.0.0</li>
-                            <li><strong>Range:</strong> 128.0.x.x to 191.255.x.x</li>
-                        </ul>
-                    </div>
-
-                    <h4 class="sub-subsection-title">Class C</h4>
-                    <div class="highlight-box">
-                        <ul>
-                            <li><strong>First three bits:</strong> "110"</li>
-                            <li><strong>Default subnet mask:</strong> 255.255.255.0</li>
-                            <li><strong>Range:</strong> 192.0.0.x to 223.255.255.x</li>
-                        </ul>
-                    </div>
-
-                    <h4 class="sub-subsection-title">Static vs Dynamic IPs</h4>
-                    <div class="highlight-box">
-                        <ul>
-                            <li><strong>Static:</strong> Remain constant for a device over time (servers, remote
-                                systems)</li>
-                            <li><strong>Dynamic:</strong> Change over time, assigned by DHCP servers</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3 class="subsection-title">Network Infrastructure Components</h3>
-
-                    <h4 class="sub-subsection-title">Routers</h4>
-                    <p>Routers are devices that forward data packets between computer networks. They use routing tables
-                        to determine the best path for data transmission.</p>
-
-                    <div class="code-block">
-                        <code>Routing Table Example:
-Destination    Gateway       Genmask        Flags  Metric  Refs  Iface
-default        192.168.0.1   0.0.0.0        UG     1024    233   eth0
-192.168.0.0    *             255.255.255.0  UC     0       0     wlan0</code>
-                    </div>
-
-                    <h4 class="sub-subsection-title">Network Address Translation (NAT)</h4>
-                    <p>NAT is a technique used by routers to provide internet service to more devices with fewer public
-                        IPs. A router is assigned a single public IP by the ISP and assigns private IPs to connected
-                        devices.</p>
-
-                    <div class="highlight-box">
-                        <strong>NAT Process Example:</strong>
-                        <p>Home device (192.168.1.100:37641) → Router NAT → Public connection (104.244.42.129:59273) →
-                            Remote server (72.14.204.147:80)</p>
-                    </div>
-
-                    <h4 class="sub-subsection-title">DHCP (Dynamic Host Configuration Protocol)</h4>
-                    <p>DHCP is responsible for assigning dynamic IP addresses to hosts. The DHCP server is maintained by
-                        the ISP or router.</p>
-
-                    <h4 class="sub-subsection-title">DNS (Domain Name System)</h4>
-                    <p>DNS servers maintain records of domain name to IP address mappings, allowing us to use memorable
-                        domain names instead of IP addresses.</p>
-
-                    <div class="image-container">
-                        <div class="image-placeholder">
-                            🔍 DNS Resolution Process
-                            <br><small>How domain names are resolved to IP addresses</small>
-                        </div>
-                    </div>
-
-                    <div
+            <h3>Functions of Network Devices</h3>
+            <ul>
+                <li>Send and receive data between different devices</li>
+                <li>Allow devices to connect
