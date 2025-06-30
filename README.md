@@ -13,7 +13,7 @@
 ---
 
 ## 🧩 **The OSI Model**  
-![alt text](src/https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png)
+![alt text](https://cf-assets.www.cloudflare.com/slt3lc6tev37/6ZH2Etm3LlFHTgmkjLmkxp/59ff240fb3ebdc7794ffaa6e1d69b7c2/osi_model_7_layers.png)
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or networking system, dividing it into seven layers. This model helps in understanding how different network components interact to enable communication between devices, regardless of their underlying technology. created by ISO (International Organization for Standardization), think about layers like a steps to communicat between devices.
 This steps or layers is 7, and this steps happend is the two devices, the sender and the reciever do this steps in reverce,
