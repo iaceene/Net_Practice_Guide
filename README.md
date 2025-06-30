@@ -1,4 +1,4 @@
-[![NetPractice](https://img.shields.io/badge/SUBJECT-42-blue?style=for-the-badge)](https://iaceene.github.io/42_Subjects/?subject=NetPractice) "        " [![NetPractice](https://img.shields.io/badge/ONLINE_SIMULATOR-42-green?style=for-the-badge)](https://iaceene.github.io/Net_Practice_42)
+[![NetPractice](https://img.shields.io/badge/SUBJECT-42-blue?style=for-the-badge)](https://iaceene.github.io/42_Subjects/?subject=NetPractice) -- [![NetPractice](https://img.shields.io/badge/ONLINE_SIMULATOR-42-green?style=for-the-badge)](https://iaceene.github.io/Net_Practice_42)
 
 ---
 
