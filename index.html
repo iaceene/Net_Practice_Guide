@@ -469,7 +469,8 @@
             position: absolute;
             top: -10px;
             left: 20px;
-            background: var(--bg-primary);
+            background: rgba(87, 198, 213, 0.924);
+            border-radius: 100px;
             padding: 0 0.5rem;
             font-size: 1.2rem;
         }
@@ -485,6 +486,7 @@
             backdrop-filter: blur(10px);
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -515,16 +517,19 @@
 
             <div class="badges">
                 <a href="https://iaceene.github.io/42_Subjects/?subject=NetPractice" class="badge">
-                    📚 42 Subject Guide
+                    <i class="fas fa-key"></i>  42 Subject
                 </a>
                 <a href="https://iaceene.github.io/Net_Practice_42" class="badge">
-                    🎮 Online Simulator
+                     <i class="fas fa-circle online-dot"></i> Online Simulator
+                </a>
+                                <a href="https://github.com/iaceene" class="badge">
+                              <i class="fab fa-github fa-2x"></i> Github
                 </a>
             </div>
         </section>
 
         <div class="toc animate-on-scroll">
-            <h2>📌 Table of Contents</h2>
+            <h2><i class="fas fa-list"></i> Table of Contents</h2>
             <ol>
                 <li><a href="#osi-model">OSI Model</a></li>
                 <li><a href="#tcp-ip">TCP/IP Protocol Suite</a></li>
