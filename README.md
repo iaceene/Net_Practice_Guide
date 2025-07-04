@@ -549,6 +549,42 @@ Each router has a **routing table** with entries like:
 * **Interface**: Which network interface to use.
 * **Metric**: Cost or preference (lower = better).
 
+A **network interface** is the point of connection between a computer (or device) and a network. It can be:
+
+### 🧩 Types of Network Interfaces:
+
+1. **Physical Interface**:
+
+   * Example: Ethernet port (`eth0`, `enp0s3`) or Wi-Fi adapter (`wlan0`).
+   * It's actual hardware that lets your device connect to a network.
+
+2. **Virtual Interface**:
+
+   * Example: `lo` (loopback interface), `tun0`, `br0`.
+   * Used for internal communication, VPNs, containers, or bridging.
+
+---
+
+### 📡 What It Does:
+
+* Sends and receives data packets.
+* Has a unique **MAC address**.
+* Can have one or more **IP addresses** assigned.
+
+---
+
+### 🧠 Example:
+
+On Linux, if you run `ip a`, you might see:
+
+```
+1: lo: <LOOPBACK> ...
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> ...
+3: wlan0: <BROADCAST,MULTICAST> ...
+```
+
+Each of these (`lo`, `eth0`, `wlan0`) is a **network interface**.
+
 ---
 
 ### 4. **Forwarding the Packet**
