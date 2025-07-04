@@ -8,7 +8,7 @@
 3. [IP Addresses & Subnet Masks](#-ip-addresses--subnet-masks)  
 4. [Network Devices](#-network-devices-explained)  
 5. [How Data Travels](#-how-data-travels-across-networks)
-6. [What is a Route?](What is a Route?)
+6. [What is a Route?](#What_is_a_Route?)
 
 ---
 
