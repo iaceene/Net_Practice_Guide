@@ -7,7 +7,8 @@
 2. [TCP/IP PROTOCOL SUITE](#-tcp-ip-protocol-suite)  
 3. [IP Addresses & Subnet Masks](#-ip-addresses--subnet-masks)  
 4. [Network Devices](#-network-devices-explained)  
-5. [How Data Travels](#-how-data-travels-across-networks)  
+5. [How Data Travels](#-how-data-travels-across-networks)
+6. [What is a Route?](What is a Route?)
 
 ---
 
@@ -504,3 +505,100 @@ Once the data reaches the recipient’s device, it is received and processed by 
 
 #### Conclusion:
 In conclusion, data travels through the internet in a complex but well-organized manner. From the origination point to the final destination, the data passes through various devices and networks, each playing a crucial role in ensuring efficient transmission. Understanding how data travels through the internet can help you appreciate the technology behind it and the effort that goes into making it possible for us to communicate, work, and access information across the globe.
+
+---
+
+## 🧭 What is a Route?
+
+![7149bdf6-dd6d-4757-bcfe-0e12122f44f9](https://github.com/user-attachments/assets/fd1ca759-803e-4829-a0b1-80081afdb1a6)
+
+A **route** is a path that data packets follow to reach a specific destination. The decision on which path to take is made by **routers** using a **routing table**.
+
+---
+
+## 📦 How Routing Works (Step by Step)
+
+### 1. **Host Sends a Packet**
+
+* A host (e.g., your computer) wants to send data to another IP address.
+* It checks: **Is the destination IP in my local network?**
+
+  * If **yes** → sends directly.
+  * If **no** → sends the packet to the **default gateway** (usually your router).
+
+---
+
+### 2. **Router Receives the Packet**
+
+* The router examines the **destination IP address**.
+* It checks its **routing table** to decide where to send the packet next.
+
+---
+
+### 3. **Routing Table Lookup**
+
+Each router has a **routing table** with entries like:
+
+| Destination Network | Next Hop           | Interface | Metric |
+| ------------------- | ------------------ | --------- | ------ |
+| 192.168.1.0/24      | Directly connected | eth0      | 0      |
+| 0.0.0.0/0           | 192.168.1.1        | eth1      | 1      |
+
+* **Destination Network**: The IP range this route covers.
+* **Next Hop**: The IP address of the next router on the path.
+* **Interface**: Which network interface to use.
+* **Metric**: Cost or preference (lower = better).
+
+---
+
+### 4. **Forwarding the Packet**
+
+* The router forwards the packet out of the correct **interface** to the **next hop**.
+* This process continues until the packet reaches its **final destination**.
+
+---
+
+## 🔁 Types of Routes
+
+### 🟩 1. **Directly Connected Routes**
+
+* Networks that the router is physically connected to.
+
+### 🟨 2. **Static Routes**
+
+* Manually added by a network administrator.
+* Good for small or stable networks.
+
+### 🟦 3. **Dynamic Routes**
+
+* Learned using **routing protocols** like:
+
+  * **RIP** (Routing Information Protocol)
+  * **OSPF** (Open Shortest Path First)
+  * **BGP** (Border Gateway Protocol)
+* Routers communicate with each other to exchange route info and adapt to changes.
+
+---
+
+## 🌐 Default Route (0.0.0.0/0)
+
+* A catch-all route: "If you don't know where it goes, send it here."
+* Usually points to the internet gateway.
+
+---
+
+## 🧠 Simple Example
+
+You (Host: `192.168.1.10`) want to send data to a website (`93.184.216.34`):
+
+1. Your PC sees it's not in your local network.
+2. It sends the packet to the default gateway: `192.168.1.1`.
+3. Router `192.168.1.1` checks its routing table.
+4. It finds the best next hop and forwards the packet.
+5. This process continues until the packet reaches the web server.
+6. Response packets follow the reverse path using similar routing logic.
+
+---
+
+
+
